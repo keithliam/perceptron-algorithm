@@ -67,7 +67,8 @@ for x in range(0, 50000):
 		a = 0
 		for ctr1 in range(0, xLength - 1):
 			a += data['x'][ctr1][ctr] * data['w'][ctr1][ctr]
-		data['a'].append(a + b * data['w'][xLength - 1][ctr])
+		a += b * data['w'][xLength - 1][ctr]
+		data['a'].append(a)
 		
 		if a > t:
 			data['y'].append(1)
