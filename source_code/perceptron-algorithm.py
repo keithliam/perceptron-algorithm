@@ -59,7 +59,7 @@ output = getDataVariablesAsString() + '\n'
 first = True
 for ctr in range(0, xLength - 1):
 	data['w'][ctr].append(0)
-data['w'][xLength - 1].append(0.9)
+data['w'][xLength - 1].append(0)
 for x in range(0, 50000):
 	for ctr in range(0, dLength):
 		wTemp = []
