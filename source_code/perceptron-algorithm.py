@@ -55,12 +55,12 @@ while line != '':
 inputFile.close()
 
 # initiate perceptron algorithm
-output = getDataVariablesAsString() + '\n'
 first = True
+limit = 15000
 for ctr in range(0, xLength - 1):
 	data['w'][ctr].append(0)
 data['w'][xLength - 1].append(0)
-for x in range(0, 15000):
+for x in range(0, limit):
 	for ctr in range(0, dLength):
 		wTemp = []
 
@@ -86,8 +86,6 @@ for x in range(0, 15000):
 				wTemp.append(data['w'][ctr1][ctr] + (r * data['x'][ctr1][ctr] * error))
 			wTemp.append(data['w'][xLength - 1][ctr] + (r * b * error))
 
-	output += 'Iteration ' + str(x + 1) + '\n' + getDataAsString()
-
 	converge = True
 	for ctr in range(0 , xLength):
 		value = data['w'][ctr][0]
@@ -95,6 +93,8 @@ for x in range(0, 15000):
 			if data['w'][ctr][ctr1] != value:
 				converge = False
 	if converge:
+		break
+	elif x == limit - 1:
 		break
 
 	# reset all values
@@ -108,5 +108,5 @@ for x in range(0, 15000):
 
 # write output to file
 outputFile = open('output.txt', 'w')
-outputFile.write(output)
+outputFile.write(getDataVariablesAsString() + '\n' + getDataAsString())
 outputFile.close()
