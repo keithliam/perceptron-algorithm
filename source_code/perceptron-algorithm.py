@@ -86,7 +86,7 @@ for x in range(0, 50000):
 				wTemp.append(data['w'][ctr1][ctr] + (r * data['x'][ctr1][ctr] * error))
 			wTemp.append(data['w'][xLength - 1][ctr] + (r * b * error))
 
-	output += 'iteration #' + str(x + 1) + '\n' + getDataAsString()
+	output += 'Iteration ' + str(x + 1) + '\n' + getDataAsString()
 
 	converge = True
 	for ctr in range(0 , xLength):
